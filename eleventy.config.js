@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const yaml = require("js-yaml");
 const markdownItAnchor = require("markdown-it-anchor");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -12,11 +13,16 @@ const pluginImages = require("./eleventy.config.images.js");
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
+	// To Support .yaml Extension in _data
+	// You may remove this if you can use JSON
+	eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
+
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
+		"./src/admin/config.yml": "./admin/config.yml",
 	});
 
 	// Run Eleventy when these files change:
