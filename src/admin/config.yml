@@ -22,13 +22,12 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - label: "Featured Image"
-        name: "image"
-        widget: "image"
-        choose_url: true
-        media_library:
-          config:
-            multiple: true
+      - name: images
+        label: Images
+        widget: list
+        fields:
+          - { name: image, label: Image, widget: image }
+          - { name: alt, label: Alt, widget: string }
   - label: "Blog"
     name: "blog"
     folder: "src/blog"
