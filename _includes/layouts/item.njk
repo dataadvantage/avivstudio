@@ -5,8 +5,7 @@ layout: layouts/base.njk
 <p>Something</p>
 
 {% for image in images %}
-    {{ image.image }}
-    {# {% image image.image %} #}
+    {% image image.image, image.alt %}
 {% endfor %}
 
 <ul class="post-metadata">
