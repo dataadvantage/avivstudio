@@ -1,0 +1,85 @@
+<nav class="shadow font-fahkwang font-extralight" x-data="{open: false}">
+  <div class="default-container px-4 md:py-4">
+    <div class="flex h-16 justify-between">
+      <div class="flex flex-shrink-0 items-center">
+        <a href="/">
+          <img
+            class="w-[100px] -ml-2 md:ml-0 md:w-[150px]"
+            src="/img/logo.png"
+            alt="{{ metadata.title }}">
+        </a>
+      </div>
+      <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+        {% for item in collections.all | eleventyNavigation %}
+          <a href="{{ item.url }}" class="inline-flex items-center px-1 pt-1 font-normal {% if page.url == item.url %}text-black{% else %}text-gray-600{% endif %} hover:text-black transition">{{ item.key | upper }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="-mr-2 flex items-center sm:hidden">
+        <!-- Mobile menu button -->
+        <button
+          type="button"
+          class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          @click="open = !open">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+          
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg
+            x-show="!open"
+            class="block h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+          
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg
+            x-show="open"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div
+    class="sm:hidden"
+    id="mobile-menu"
+    x-show="open"
+    x-transition>
+    <div class="space-y-1 pb-3 pt-2 px-4">
+        {% for item in collections.all | eleventyNavigation %}
+          <a href="{{ item.url }}" class="block py-2 pl-3 pr-4 text-base font-medium {% if page.url == item.link %}text-black{% else %}text-gray-600{% endif %} hover:text-black">{{ item.key | upper }}</a>
+        {% endfor %}
+      {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" class="block py-2 pl-3 pr-4 text-base font-medium {% if page.url == item.link %}text-white{% else %}text-gray-300{% endif %} hover:text-white">{{ item.name | upcase }}</a>
+      {% endfor %}
+    </div>
+
+  </div>
+</nav>

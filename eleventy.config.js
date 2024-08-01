@@ -22,6 +22,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
+		"./node_modules/alpinejs/dist/cdn.min.js": "/js/alpine.js",
 		"./src/admin/config.yml": "./admin/config.yml",
 	});
 
@@ -29,7 +30,7 @@ module.exports = function (eleventyConfig) {
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	eleventyConfig.addWatchTarget("src/**/*.{svg,webp,png,jpeg}");
 
 	// App plugins
 	eleventyConfig.addPlugin(pluginDrafts);
