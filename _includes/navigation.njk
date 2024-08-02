@@ -1,4 +1,4 @@
-<nav class="shadow font-fahkwang font-extralight" x-data="{open: false}">
+<nav class="shadow font-fahkwang font-extralight py-2" x-data="{open: false}">
   <div class="default-container px-4">
     <div class="flex justify-between items-center">
       <div>
@@ -6,12 +6,13 @@
           <img
             class="w-[100px] -ml-2 md:ml-0 md:w-[150px]"
             src="/img/logo.png"
+            width="150"
             alt="{{ metadata.title }}">
         </a>
       </div>
       <div class="hidden sm:ml-6 sm:flex">
         {% for item in collections.all | eleventyNavigation %}
-          <div class="relative flex px-4 py-8 group">
+          <div class="relative flex px-4 py-6 group">
             <a href="{{ item.url }}" class="inline-flex items-center px-1 font-medium {% if page.url == item.url %}text-rose-900{% else %}text-gray-600{% endif %} hover:text-rose-900 transition">{{ item.key | upper }}</a>
             {% if item.children | length > 0 %}
             <span class="text-red-800">&#9660;</span>
@@ -80,7 +81,7 @@
   <div
     class="sm:hidden"
     id="mobile-menu"
-    x-show="!open"
+    x-show="open"
     x-transition>
     <div class="space-y-1 pb-3 pt-2 px-4">
         {% for item in collections.all | eleventyNavigation %}
