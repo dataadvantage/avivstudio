@@ -43,6 +43,7 @@
           -->
           <svg
             x-show="!open"
+            x-cloak
             class="block h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
@@ -82,6 +83,7 @@
     class="sm:hidden"
     id="mobile-menu"
     x-show="open"
+    x-cloak
     x-transition>
     <div class="space-y-1 pb-3 pt-2 px-4">
         {% for item in collections.all | eleventyNavigation %}
