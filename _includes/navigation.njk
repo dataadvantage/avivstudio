@@ -13,12 +13,12 @@
       <div class="hidden sm:ml-6 sm:flex">
         {% for item in collections.all | eleventyNavigation %}
           <div class="relative flex px-4 py-6 group">
-            <a href="{{ item.url }}" class="inline-flex items-center px-1 font-medium {% if page.url == item.url %}text-rose-900{% else %}text-gray-600{% endif %} hover:text-rose-900 transition">{{ item.key | upper }}</a>
+            <a href="{{ item.url }}" class="inline-flex items-center px-1 font-semibold {% if page.url == item.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ item.key | upper }}</a>
             {% if item.children | length > 0 %}
             <span class="text-red-800">&#9660;</span>
             <div class="bg-white shadow overflow-y-hidden max-h-0 group-hover:max-h-none opacity-0 group-hover:opacity-100 px-4 absolute left-0 right-0 top-full transition-all">
               {% for child in item.children %}
-                <a href="{{ child.url }}" class="inline-block my-2 items-center px-1 font-medium {% if page.url == child.url %}text-rose-900{% else %}text-gray-600{% endif %} hover:text-rose-900 transition">{{ child.key }}</a>
+                <a href="{{ child.url }}" class="inline-block my-2 items-center px-1 font-semibold {% if page.url == child.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ child.key | upper }}</a>
               {% endfor %}
             </div>
             {% endif %}
@@ -87,7 +87,26 @@
     x-transition>
     <div class="space-y-1 pb-3 pt-2 px-4">
         {% for item in collections.all | eleventyNavigation %}
-          <a href="{{ item.url }}" class="block py-2 pl-3 pr-4 text-base font-medium {% if page.url == item.link %}text-black{% else %}text-gray-600{% endif %} hover:text-black">{{ item.key | upper }}</a>
+          <div x-data="{subMenuOpen: false}">
+            <div class="py-2 pl-3 pr-4 flex">
+              <a href="{{ item.url }}" class="flex-1 text-base font-semibold {% if page.url == item.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900">
+                {{ item.key | upper }}
+              </a>
+
+              {% if item.children | length > 0 %}
+              <span class="text-red-800 px-2" @click="subMenuOpen = !subMenuOpen" :class="subMenuOpen && 'rotate-180'">&#9660;</span>
+              {% endif %}
+            </div>
+
+            {% if item.children | length > 0 %}
+            <div class="pl-6 transition-all" x-show="subMenuOpen" x-cloak x-transition>
+              {% for child in item.children %}
+                <a href="{{ child.url }}" class="block my-3 items-center px-1 font-semibold {% if page.url == child.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ child.key | upper }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+
         {% endfor %}
     </div>
 
