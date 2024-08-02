@@ -1,7 +1,7 @@
 <nav class="shadow font-fahkwang font-extralight" x-data="{open: false}">
-  <div class="default-container px-4 md:py-4">
-    <div class="flex h-16 justify-between">
-      <div class="flex flex-shrink-0 items-center">
+  <div class="default-container px-4">
+    <div class="flex justify-between items-center">
+      <div>
         <a href="/">
           <img
             class="w-[100px] -ml-2 md:ml-0 md:w-[150px]"
@@ -9,9 +9,19 @@
             alt="{{ metadata.title }}">
         </a>
       </div>
-      <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+      <div class="hidden sm:ml-6 sm:flex">
         {% for item in collections.all | eleventyNavigation %}
-          <a href="{{ item.url }}" class="inline-flex items-center px-1 pt-1 font-normal {% if page.url == item.url %}text-black{% else %}text-gray-600{% endif %} hover:text-black transition">{{ item.key | upper }}</a>
+          <div class="relative flex px-4 py-8 group">
+            <a href="{{ item.url }}" class="inline-flex items-center px-1 font-medium {% if page.url == item.url %}text-rose-900{% else %}text-gray-600{% endif %} hover:text-rose-900 transition">{{ item.key | upper }}</a>
+            {% if item.children | length > 0 %}
+            <span class="text-red-800">&#9660;</span>
+            <div class="bg-white shadow overflow-y-hidden max-h-0 group-hover:max-h-full opacity-0 group-hover:opacity-100 px-4 absolute left-0 right-0 top-full transition-all">
+              {% for child in item.children %}
+                <a href="{{ child.url }}" class="inline-block my-2 items-center px-1 font-medium {% if page.url == child.url %}text-rose-900{% else %}text-gray-600{% endif %} hover:text-rose-900 transition">{{ child.key }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
 
@@ -70,15 +80,12 @@
   <div
     class="sm:hidden"
     id="mobile-menu"
-    x-show="open"
+    x-show="!open"
     x-transition>
     <div class="space-y-1 pb-3 pt-2 px-4">
         {% for item in collections.all | eleventyNavigation %}
           <a href="{{ item.url }}" class="block py-2 pl-3 pr-4 text-base font-medium {% if page.url == item.link %}text-black{% else %}text-gray-600{% endif %} hover:text-black">{{ item.key | upper }}</a>
         {% endfor %}
-      {% for item in site.data.navigation %}
-        <a href="{{ item.link }}" class="block py-2 pl-3 pr-4 text-base font-medium {% if page.url == item.link %}text-white{% else %}text-gray-300{% endif %} hover:text-white">{{ item.name | upcase }}</a>
-      {% endfor %}
     </div>
 
   </div>

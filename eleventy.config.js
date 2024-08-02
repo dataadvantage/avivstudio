@@ -10,6 +10,7 @@ const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
+const customCollections = require("./eleventy.config.collection.js");
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
@@ -35,6 +36,7 @@ module.exports = function (eleventyConfig) {
 	// App plugins
 	eleventyConfig.addPlugin(pluginDrafts);
 	eleventyConfig.addPlugin(pluginImages);
+	eleventyConfig.addPlugin(customCollections);
 
 	// Official plugins
 	eleventyConfig.addPlugin(pluginRss);

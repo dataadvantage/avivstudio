@@ -1,0 +1,22 @@
+---
+  layout: layouts/base.njk
+  pagination:
+    data: collections.projectCategories
+    size: 1
+    alias: category
+    addAllPagesToCollections: true
+  override:tags: []
+  permalink: "/projects/something/{{ category | slugify }}/index.html"
+  eleventyComputed:
+    eleventyNavigation:
+      key: "{{ category }}"
+      parent: Portfolio
+---
+
+{% for project in collections.projects %}
+  <div>
+  {% if (project.data.category | slugify) == (category | slugify) %}
+    <a href="{{ project.url }}">{{ project.data.title }}</a>
+  {% endif %}
+  </div>
+{% endfor %}
