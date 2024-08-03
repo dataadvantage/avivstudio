@@ -1,9 +1,11 @@
 <footer class="shadow bg-zinc-900 text-white py-12">
     <div class="default-container px-6">
-        <h3 class="mb-4"><span class="font-medium">AVIV</span> <span class="font-extralight">STUDIO</span></h3>
-        <div class="grid grid-cols-3 mb-6">
+
+        <p class="mb-4 text-2xl"><span class="font-medium">AVIV</span> <span class="font-extralight">STUDIO</span></p>
+
+        <div class="grid md:grid-cols-3 mb-6">
             <div>
-                <p class="text-neutral-200 font-light">
+                <p class="text-neutral-100 font-light">
                     AVIV Co.,Ltd.<br />
                     15 อาคาร33 สเปซ อาคาร 15 ชั้น 6 เอ ห้อง 604 ซอยประดิพัทธ์ 17 ถนนประดิพัทธ์ แขวงพญาไท เขตพญาไท กรุงเทพมหานคร 10400<br />
                     Email: <a href="mailto:{{ contacts.email }}" class="font-medium">{{ contacts.email }}</a><br />
@@ -21,7 +23,7 @@
         </div>
         <div>
             {% for item in collections.all | eleventyNavigation %}
-                <a href="{{ item.url }}" class="inline-flex items-center pr-6 font-light text-white hover:text-primary-600 transition">{{ item.key | upper }}</a>
+                <a href="{{ item.url }}" class="inline-flex mb-4 items-center pr-6 font-light text-white hover:text-primary-600 transition">{{ item.key | upper }}</a>
             {% endfor %}
         </div>
     </div>
