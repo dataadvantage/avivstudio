@@ -13,10 +13,22 @@
       parent: Portfolio
 ---
 
-{% for project in collections.projects %}
-  <div>
-  {% if (project.data.category | slugify) == (category | slugify) %}
-    <a href="{{ project.url }}">{{ project.data.title }}</a>
-  {% endif %}
-  </div>
-{% endfor %}
+<div class="default-container py-12 px-6">
+  
+  <p class="text-primary-900 font-medium text-sm">OUR WORKS</p>
+  <h1 class="mb-12 font-medium text-neutral-700">{{ category | upper }}</h1>
+
+  <ul class="grid md:grid-cols-3 gap-6">
+    {% for project in collections.projects | head(3) %}
+      {% if (project.data.category | slugify) == (category | slugify) %}
+        <li class="relative cursor-pointer group">
+          <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4">
+            {% image "../" + project.data.thumbnail, "something", "600px, 2000px" %}
+          </div>
+          <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
