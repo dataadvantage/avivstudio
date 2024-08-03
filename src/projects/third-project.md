@@ -3,6 +3,27 @@ title: Eclectic Family Home
 category: Commercial
 thumbnail: images/third-project.jpg
 banner_image: images/third-project-hero.jpg
+images:
+  - image: images/third-project-1.jpg
+    alt: An image from the project
+  - image: images/third-project-2.jpg
+    alt: An image from the project
+  - image: images/third-project-3.jpg
+    alt: An image from the project
+  - image: images/third-project-4.jpg
+    alt: An image from the project
+  - image: images/third-project-5.jpg
+    alt: An image from the project
+  - image: images/third-project-6.jpg
+    alt: An image from the project
+  - image: images/third-project-7.jpg
+    alt: An image from the project
+  - image: images/third-project-8.jpg
+    alt: An image from the project
+  - image: images/third-project-9.jpg
+    alt: An image from the project
+  - image: images/third-project-10.jpg
+    alt: An image from the project
 ---
 
 **Project Overview:**

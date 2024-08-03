@@ -3,6 +3,27 @@ title: Modern Urban Apartment
 category: Residence
 thumbnail: images/first-project.jpg
 banner_image: images/first-project-hero.jpg
+images:
+  - image: images/first-project-1.jpg
+    alt: An image from the project
+  - image: images/first-project-2.jpg
+    alt: An image from the project
+  - image: images/first-project-3.jpg
+    alt: An image from the project
+  - image: images/first-project-4.jpg
+    alt: An image from the project
+  - image: images/first-project-5.jpg
+    alt: An image from the project
+  - image: images/first-project-6.jpg
+    alt: An image from the project
+  - image: images/first-project-7.jpg
+    alt: An image from the project
+  - image: images/first-project-8.jpg
+    alt: An image from the project
+  - image: images/first-project-9.jpg
+    alt: An image from the project
+  - image: images/first-project-10.jpg
+    alt: An image from the project
 ---
 
 **Project Overview:**

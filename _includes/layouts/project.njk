@@ -17,3 +17,30 @@
         {{ content | safe }}
     </div>
 </div>
+
+<div class="flex flex-wrap gap-6 default-container">
+{% for image in images %}
+    <a href="/projects/{{ image.image }}">
+    {% image image.image, image.alt, "300px, 700px", "600px" %}
+    </a>
+{% endfor %}
+</div>
+
+<div class="default-container py-12 px-6">
+  
+  <h1 class="mb-12 font-medium text-primary-800 font-mono">OTHER PROJECTS</h1>
+
+  <ul class="grid md:grid-cols-3 gap-6">
+    {% for project in collections.projects | head(3) %}
+      {% if project.data.title != title %}
+        <li class="relative cursor-pointer group">
+          <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4">
+            {% image project.data.thumbnail, "something", "600px, 2000px" %}
+          </div>
+          <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>

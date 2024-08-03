@@ -3,6 +3,27 @@ title: Coastal Retreat Residence
 category: Commercial
 thumbnail: images/second-project.jpg
 banner_image: images/second-project-hero.jpg
+images:
+  - image: images/second-project-1.jpg
+    alt: An image from the project
+  - image: images/second-project-2.jpg
+    alt: An image from the project
+  - image: images/second-project-3.jpg
+    alt: An image from the project
+  - image: images/second-project-4.jpg
+    alt: An image from the project
+  - image: images/second-project-5.jpg
+    alt: An image from the project
+  - image: images/second-project-6.jpg
+    alt: An image from the project
+  - image: images/second-project-7.jpg
+    alt: An image from the project
+  - image: images/second-project-8.jpg
+    alt: An image from the project
+  - image: images/second-project-9.jpg
+    alt: An image from the project
+  - image: images/second-project-10.jpg
+    alt: An image from the project
 ---
 
 **Project Overview:**
