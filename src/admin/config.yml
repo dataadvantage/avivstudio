@@ -12,16 +12,28 @@ public_folder: "/static/img"
 # local_backend: true
 # publish_mode: editorial_workflow
 collections:
-  - label: "Item"
-    name: "item"
-    folder: "src/item"
+  - label: "Project"
+    name: "project"
+    folder: "src/projects"
     create: true
     editor:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Thumbnail",
+          name: "thumbnail",
+          widget: "image",
+          media_folder: "images",
+        }
+      - {
+          label: "Banner image",
+          name: "banner_image",
+          widget: "image",
+          media_folder: "images",
+        }
       - name: images
         label: Images
         widget: list
