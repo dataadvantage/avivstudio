@@ -15,8 +15,8 @@
           <div class="relative flex px-4 py-10 group">
             <a href="{{ item.url }}" class="inline-flex items-center px-1 font-medium {% if page.url == item.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ item.key | upper }}</a>
             {% if item.children | length > 0 %}
-            <span class="text-red-800">&#9660;</span>
-            <div class="bg-white shadow overflow-y-hidden max-h-0 group-hover:max-h-none opacity-0 group-hover:opacity-100 px-4 absolute left-0 right-0 top-full transition-all">
+            <span class="text-red-800 cursor-pointer">&#9660;</span>
+            <div class="z-10 bg-white shadow overflow-y-hidden max-h-0 group-hover:max-h-none opacity-0 group-hover:opacity-100 px-4 absolute left-0 right-0 top-full transition-all">
               {% for child in item.children %}
                 <a href="{{ child.url }}" class="inline-block my-2 items-center px-1 font-medium {% if page.url == child.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ child.key | upper }}</a>
               {% endfor %}
@@ -94,7 +94,7 @@
               </a>
 
               {% if item.children | length > 0 %}
-              <span class="text-red-800 px-2" @click="subMenuOpen = !subMenuOpen" :class="subMenuOpen && 'rotate-180'">&#9660;</span>
+              <span class="text-red-800 px-2 cursor-pointer" @click="subMenuOpen = !subMenuOpen" :class="subMenuOpen && 'rotate-180'">&#9660;</span>
               {% endif %}
             </div>
 
