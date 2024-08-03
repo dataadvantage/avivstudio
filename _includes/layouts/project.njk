@@ -1,8 +1,19 @@
 ---
     layout: layouts/base.njk
 ---
+{% if banner_image %}
+    <div class="max-w-full overflow-hidden max-h-[600px] flex items-center">
+        {% image banner_image, title %}
+    </div>
+{% endif %}
 
-<div class="default-container py-12">
-{{ title }}
-{{ category }}
+<div class="max-w-4xl py-12 px-6 mx-auto">
+
+
+    <p class="text-neutral-700 font-medium text-sm">OUR WORKS / {{ category | upper }}</p>
+    <h1 class="mb-12 font-medium text-primary-800 font-mono">{{ title | upper }}</h1>
+
+    <div class="prose max-w-none prose-strong:text-primary-800 marker:text-primary-800 prose-lg">
+        {{ content | safe }}
+    </div>
 </div>

@@ -15,8 +15,8 @@
 
 <div class="default-container py-12 px-6">
   
-  <p class="text-primary-900 font-medium text-sm">OUR WORKS</p>
-  <h1 class="mb-12 font-medium text-neutral-700">{{ category | upper }}</h1>
+  <p class="text-neutral-700 font-medium text-sm">OUR WORKS</p>
+  <h1 class="mb-12 font-medium text-primary-800 font-mono">{{ category | upper }}</h1>
 
   <ul class="grid md:grid-cols-3 gap-6">
     {% for project in collections.projects | head(3) %}

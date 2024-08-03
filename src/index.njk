@@ -5,15 +5,15 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 3
 ---
-<div class="bg-primary-900">
-  <div class="relative isolate px-6 pt-14 lg:px-8">
+<div class="bg-[url('/img/home-hero.jpg')] bg-cover bg-center">
+  <div class="relative isolate px-6 pt-14 lg:px-8 bg-gray-900/30">
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium text-white">AVIV</span><span class="font-extralight text-white">STUDIO</span></h1>
-        <p class="font-thin text-xl text-white">Design to elevate</p>
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium text-white">AVIV</span><span class="font-extralight text-white">STUDIO</span></h1>
+        <p class="font-thin text-2xl text-white">Design to elevate</p>
         <p class="mt-6 text-lg leading-8 text-gray-600"></p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="/contact-us" class="bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">CONTACT US</a>
+          <a href="/contact-us" class="btn-primary-lg">GET AN ESTIMATE</a>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@ numberOfLatestPostsToShow: 3
 
 <div class="default-container py-12 px-6">
   
-  <h1 class="mb-12 font-medium">OUR WORKS</h1>
+  <h1 class="mb-12 font-medium font-mono text-primary-800 tracking-wider">OUR WORKS</h1>
 
   <ul class="grid md:grid-cols-3 gap-6">
     {% for project in collections.projects | head(3) %}
@@ -30,6 +30,7 @@ numberOfLatestPostsToShow: 3
         <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4">
           {% image "projects/" + project.data.thumbnail, "something", "600px, 2000px" %}
         </div>
+        <p class="text-neutral-400">{{ project.data.category }}</p>
         <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
       </li>
     {% endfor %}

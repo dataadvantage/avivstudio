@@ -10,7 +10,7 @@
 
 <div class="default-container py-12 px-6">
   
-  <h1 class="mb-12 font-medium">OUR WORKS</h1>
+  <h1 class="mb-12 font-medium text-primary-800 font-mono">OUR WORKS</h1>
 
   <ul class="grid md:grid-cols-3 gap-6">
     {% for project in collections.projects | head(3) %}
@@ -18,6 +18,7 @@
         <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4">
           {% image project.data.thumbnail, "something", "600px, 2000px" %}
         </div>
+        <p class="text-neutral-400">{{ project.data.category }}</p>
         <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
       </li>
     {% endfor %}
