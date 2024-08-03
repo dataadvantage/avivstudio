@@ -5,12 +5,12 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 3
 ---
-<div class="">
+<div class="bg-primary-900">
   <div class="relative isolate px-6 pt-14 lg:px-8">
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium">AVIV</span><span class="font-extralight">STUDIO</span></h1>
-        <p class="font-thin text-xl">Design to elevate</p>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium text-white">AVIV</span><span class="font-extralight text-white">STUDIO</span></h1>
+        <p class="font-thin text-xl text-white">Design to elevate</p>
         <p class="mt-6 text-lg leading-8 text-gray-600"></p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a href="/contact-us" class="bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">CONTACT US</a>
@@ -20,19 +20,21 @@ numberOfLatestPostsToShow: 3
   </div>
 </div>
 
-<div class="default-container py-12">
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+<div class="default-container py-12 px-6">
+  
+  <h1 class="mb-12 font-medium">Our works</h1>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+  <ul class="grid md:grid-cols-3 gap-6">
+    {% for project in collections.projects | head(3) %}
+      <li class="relative cursor-pointer group">
+        <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4">
+          {% image "projects/" + project.data.thumbnail, "something", "600px, 2000px" %}
+        </div>
+        <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="/blog/">the archive</a>.</p>
-{% endif %}
 </div>
 
 {# List every content page in the project #}

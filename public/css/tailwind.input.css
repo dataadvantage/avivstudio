@@ -6,6 +6,11 @@
 	@apply max-w-6xl mx-auto;
 }
 
+.stretched-link::after {
+	content: "";
+	@apply z-10 absolute inset-0 bg-transparent pointer-events-auto;
+}
+
 @layer base {
 	h1 {
 		@apply text-4xl font-semibold;
