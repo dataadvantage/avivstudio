@@ -5,18 +5,19 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 3
 ---
-<div class="bg-[url('/img/home-hero.webp')] bg-cover bg-center">
-  <div class="relative isolate px-6 pt-14 lg:px-8 bg-gray-900/30">
-    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      <div class="text-center">
-        <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium text-white">AVIV</span><span class="font-extralight text-white">STUDIO</span></h1>
-        <p class="font-thin text-2xl text-white">Design to elevate</p>
-        <p class="mt-6 text-lg leading-8 text-gray-600"></p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="/contact-us" class="btn-primary-lg">GET AN ESTIMATE</a>
-        </div>
+<div class="relative isolate px-6lg:px-8">
+  <div class="mx-auto bg-stone-700/50 py-32 sm:py-48 lg:py-56">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl"><span class="font-medium text-white">AVIV</span><span class="font-extralight text-white">STUDIO</span></h1>
+      <p class="font-thin text-2xl text-white">Design to elevate</p>
+      <p class="mt-6 text-lg leading-8 text-gray-600"></p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a href="/contact-us" class="btn-primary-lg">GET AN ESTIMATE</a>
       </div>
     </div>
+  </div>
+  <div class="absolute inset-0 -z-10 [&_img]:h-full [&_img]:object-cover">
+    {% image '../public/img/home-hero.webp', "Main design" %}
   </div>
 </div>
 

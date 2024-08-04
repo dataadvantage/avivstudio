@@ -24,7 +24,7 @@
     {% set isPortrait = imageDetails.height > imageDetails.width %}
     <div class="{% if isPortrait %}row-span-2{% endif %} relative flex items-stretch [&_picture>img]:h-full [&_picture>img]:object-cover hover:-translate-y-2 transition cursor-pointer">
         {% image image.image, image.alt, "600px" %}
-        <a href="/projects/{{ image.image }}" class="stretched-link"></a>
+        <a href="/projects/{{ image.image }}" class="stretched-link" target="_blank"></a>
     </div>
 
     {# <a href="/projects/{{ image.image }}">
