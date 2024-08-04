@@ -18,11 +18,18 @@
     </div>
 </div>
 
-<div class="default-container grid grid-cols-2 md:grid-cols-3 gap-2">
+<div class="default-container grid grid-cols-2 md:grid-cols-3 gap-4 auto-cols-auto">
 {% for image in images %}
-    <a href="/projects/{{ image.image }}">
-    {% image image.image, image.alt, "600px, 1200px", "640px" %}
-    </a>
+  {% set imageDetails = image.image | imageSize %}
+    {% set isPortrait = imageDetails.height > imageDetails.width %}
+    <div class="{% if isPortrait %}row-span-2{% endif %} relative flex items-stretch [&_picture>img]:h-full [&_picture>img]:object-cover hover:-translate-y-2 transition cursor-pointer">
+        {% image image.image, image.alt, "600px" %}
+        <a href="/projects/{{ image.image }}" class="stretched-link"></a>
+    </div>
+
+    {# <a href="/projects/{{ image.image }}">
+    {% image image.image, image.alt, "600px, 1200px", "640px" %} #}
+    {# </a> #}
 {% endfor %}
 </div>
 

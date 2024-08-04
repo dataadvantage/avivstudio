@@ -1,5 +1,6 @@
 const path = require("path");
 const eleventyImage = require("@11ty/eleventy-img");
+const sizeOf = require("image-size");
 
 function relativeToInputPath(inputPath, relativeFilePath) {
 	let split = inputPath.split("/");
@@ -18,6 +19,17 @@ function isFullUrl(url) {
 }
 
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addFilter("imageSize", async function imageSizeShortcode(src) {
+		let input;
+		if (isFullUrl(src)) {
+			input = src;
+		} else {
+			input = relativeToInputPath(this.page.inputPath, src);
+		}
+		const dimensions = sizeOf(input);
+		return dimensions;
+	});
+
 	// Eleventy Image shortcode
 	// https://www.11ty.dev/docs/plugins/image/
 	eleventyConfig.addAsyncShortcode(
