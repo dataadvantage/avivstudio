@@ -27,8 +27,8 @@ numberOfLatestPostsToShow: 3
   <ul class="grid md:grid-cols-3 gap-6">
     {% for project in collections.projects | head(3) %}
       <li class="relative cursor-pointer group">
-        <div class="max-h-[300px] overflow-y-hidden flex items-center mb-4 group-hover:-translate-y-2 transition">
-          {% image "projects/" + project.data.thumbnail, "something", "600px, 2000px" %}
+        <div class="max-h-[190px] overflow-y-hidden flex items-center mb-4">
+          {% image "projects/" + project.data.thumbnail, "something", "600px, 1000px", "(max-width: 640px) 600px, 1000px" %}
         </div>
         <p class="text-neutral-400">{{ project.data.category }}</p>
         <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>

@@ -1480,6 +1480,14 @@ h4 {
   display: none;
 }
 
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -1494,6 +1502,14 @@ h4 {
 
 .max-h-\[600px\] {
   max-height: 600px;
+}
+
+.max-h-\[200px\] {
+  max-height: 200px;
+}
+
+.max-h-\[190px\] {
+  max-height: 190px;
 }
 
 .w-6 {
@@ -1537,6 +1553,10 @@ h4 {
   cursor: pointer;
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1559,6 +1579,10 @@ h4 {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-x-6 {
