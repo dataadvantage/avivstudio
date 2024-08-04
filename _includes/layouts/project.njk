@@ -42,7 +42,7 @@
       {% if project.data.title != title %}
         <li class="relative cursor-pointer group">
           <div class="max-h-[190px] overflow-y-hidden flex items-center mb-4">
-            {% image project.data.thumbnail, "something", "600px, 2000px" %}
+            {% image project.data.thumbnail, project.data.title, "600px" %}
           </div>
           <a href="{{ project.url }}" class="text-xl font-light stretched-link group-hover:underline">{{ project.data.title }}</a>
         </li>
