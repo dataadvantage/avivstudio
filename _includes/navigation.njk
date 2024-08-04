@@ -1,13 +1,9 @@
 <nav class="shadow font-fahkwang font-extralight" x-data="{open: false}">
   <div class="default-container px-4">
     <div class="flex justify-between items-center">
-      <div>
+      <div class="max-w-[100px] sm:max-w-none">
         <a href="/">
-          <img
-            class="w-[100px] -ml-2 md:ml-0 md:w-[150px] py-2 sm:py-0"
-            src="/img/logo.png"
-            width="150"
-            alt="{{ metadata.title }}">
+          {% image eleventy.env.root + "/public/img/logo.png", "AVIV Studio logo", "100px, 150px", "(max-width: 400px) 100vw, 150px"%}
         </a>
       </div>
       <div class="hidden sm:ml-6 sm:flex">
@@ -15,7 +11,7 @@
           <div class="relative flex px-4 py-10 group">
             <a href="{{ item.url }}" class="inline-flex items-center px-1 font-medium {% if page.url == item.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ item.key | upper }}</a>
             {% if item.children | length > 0 %}
-            <span class="text-red-800 cursor-pointer">&#9660;</span>
+            <span class="text-red-800 cursor-pointer pl-2">&#9660;</span>
             <div class="z-10 bg-white shadow overflow-y-hidden max-h-0 group-hover:max-h-none opacity-0 group-hover:opacity-100 px-4 absolute left-0 right-0 top-full transition-all">
               {% for child in item.children %}
                 <a href="{{ child.url }}" class="inline-block my-2 items-center px-1 font-medium {% if page.url == child.url %}text-primary-900{% else %}text-gray-600{% endif %} hover:text-primary-900 transition">{{ child.key | upper }}</a>
